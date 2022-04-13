@@ -20,12 +20,19 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.get("/tt",(req,res) => {
-    var templateDir = path.join(__dirname, "../../", 'templates', 'testMailTemplate/html')
-    res.render({user:"test"},"test")
-})
-app.use(morgan("dev"))
+// app.get("/tt",(req,res) => {
+//     var templateDir = path.join(__dirname, "../../", 'templates', 'testMailTemplate/html')
+//     res.render({user:"test"},"test")
+// })
+
+app.use(morgan("dev"));
+
 app.use(routes);
+const root = require('path').join(__dirname, 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
 app.use((req, res, next) => {
     // Error goes via `next()` method
     setImmediate(() => {
