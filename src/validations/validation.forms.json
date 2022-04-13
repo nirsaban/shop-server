@@ -1,0 +1,51 @@
+{
+    "CREATE_CATEGORY": {
+        "category_name": "required"
+    },
+    "DELETE_CATEGORY": {
+        "category_id": "required"
+    },
+    "CREATE_PACKAGE": {
+        "package_name": "required",
+        "products": "required",
+        "price": "required",
+        "rate": "required",
+        "description": "required"
+    },
+    "CREATE_PRODUCT": {
+        "category_id": "required",
+        "product_name": "required",
+        "price": "required",
+        "images": "images",
+        "description": "required"
+    },
+    "REGISTER": {
+        "full_name": "required",
+        "email": "required",
+        "password": "required"
+    },
+    "LOGIN": {
+        "email": "required",
+        "password": "required"
+    },
+    "CREATE_ORDER": {
+        "cartItems": "required",
+        "total": "required",
+        "userId": "required",
+        "date": "required",
+        "more_data": "",
+        "phone": "required",
+        "address": "required"
+    },
+    "CREATE_CONTACT": {
+        "name": "required",
+        "email": "required",
+        "phone": "required",
+        "subject": "required",
+        "message": "message"
+    },
+    "CREATE_ABOUT": {
+        "content": "required",
+        "images": "images"
+    }
+}
