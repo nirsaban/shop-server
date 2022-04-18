@@ -1,10 +1,10 @@
 const configDev = {
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"mabrukAlik",
-    multipleStatements: true
-}
+  host: process.env["dbHost"],
+  user: "root",
+  password: process.env["dbPass"],
+  database: process.env["dbName"],
+  multipleStatements: true,
+};
 
 module.exports = {
     configDev,
