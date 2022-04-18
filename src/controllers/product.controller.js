@@ -27,7 +27,13 @@ exports.get = async (req, res) => {
         if (products.length > 0) {
             let productsParse = products.map(product => {
                 let imagesArr = JSON.parse(product.images)
-                product.images = imagesArr
+                let imageNew = imagesArr.map(img => {
+                    return img.replace(
+                      "localhost",
+                      "ec2-54-90-79-222.compute-1.amazonaws.com"
+                    );
+                })
+                product.images = imageNew;
                 return product
             })
             res.status(200).send(productsParse)
