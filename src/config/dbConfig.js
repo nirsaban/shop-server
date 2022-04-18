@@ -1,8 +1,8 @@
 const configDev = {
-  host: process.env["dbHost"],
+  host: "shop.c9kz33x88ryk.us-east-1.rds.amazonaws.com",
   user: "root",
-  password: process.env["dbPass"],
-  database: process.env["dbName"],
+  password: 'parnasa2022',
+  database: 'mabrukAlik',
   multipleStatements: true,
 };
 
