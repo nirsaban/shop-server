@@ -14,7 +14,7 @@ exports.create = async (req, res) => {
         const fields = sanitize(validationTypes.CREATE_PRODUCT, req.body)
         let result = await Product.create(fields)
         let msg = "THE PRODUCT CREATED SUCCESSFULLY"
-        res.send({msg})
+        res.send({msg,result})
     } catch (error) {
 
         res.status(422).send(error.message)
@@ -31,6 +31,25 @@ exports.get = async (req, res) => {
                 return product
             })
             res.status(200).send(productsParse)
+
+        } else {
+            res.status(422).send("no products exist")
+
+        }
+    } catch (error) {
+        res.status(422).send("no products exist")
+    }
+}
+exports.delete = async (req, res) => {
+    try {
+        let products = await Product.delete(req.body.id)
+        if (products.length > 0) {
+            let result = products.map(product => {
+                let imagesArr = JSON.parse(product.images)
+                product.images = imagesArr
+                return product
+            })
+            res.status(200).send( {msg : "category has been delete" ,result})
 
         } else {
             res.status(422).send("no products exist")

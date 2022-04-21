@@ -3,7 +3,7 @@
         "category_name": "required"
     },
     "DELETE_CATEGORY": {
-        "category_id": "required"
+        "id": "required"
     },
     "CREATE_PACKAGE": {
         "package_name": "required",

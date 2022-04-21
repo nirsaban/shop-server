@@ -4,6 +4,7 @@ const packageCRTL = require("../controllers/package.controller");
 
 router.post("/create",requireAuth,packageCRTL.create);
 router.get("/get",packageCRTL.get);
+router.delete("/delete",packageCRTL.delete);
 
 
 module.exports = router;

@@ -8,8 +8,8 @@ exports.add_category = async(req, res) => {
         const result = await Category.addCategory(fields)
         if (result.affectedRows > 0) {
             res.status(200)
-            let msg = "ABOUT SECTION CREATED SUCCESSFULLY"
-            res.send({msg})
+            let msg = "Category  CREATED SUCCESSFULLY"
+            res.send({msg,result :await Category.getAll()})
         }
     } catch (error) {
         res.status(422).send(error.message)
@@ -19,11 +19,10 @@ exports.add_category = async(req, res) => {
 
 exports.delete_category = async(req, res) => {
     try {
-        let { category_id } = sanitize(validationTypes.DELETE_CATEGORY, req.query)
-        const result = await Category.deleteCategory(category_id)
+        const result = await Category.deleteCategory(req.body.id)
         if (result.affectedRows > 0) {
             res.status(200)
-            res.send("category has been delete")
+            res.send( {msg : "category has been delete" ,result :await Category.getAll()})
         }
     } catch (error) {
         res.status(422).send(error.message)
@@ -35,7 +34,7 @@ exports.get = async(req, res) => {
         const result = await Category.getAll()
         if (result.length > 0) {
             res.status(200)
-            res.send(result)
+            res.send({result})
         } else {
             res.send([])
         }

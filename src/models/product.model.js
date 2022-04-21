@@ -9,7 +9,8 @@ Product.create = async(fields) => {
     let sqlQuery = "INSERT INTO products set ?";
     let result = await db.query(sqlQuery, fields);
     await db.close()
-    return result
+
+    return await Product.getAll()
 }
 
 Product.getAll =  async() => {
@@ -19,6 +20,12 @@ Product.getAll =  async() => {
     let result = await db.query(sqlQuery);
     await db.close()
     return result
+}
+Product.delete = async (id)  => {
+    let db = new DB(configDev);
+    let sqlQuery = "delete from products where id = ? "
+    let result = await db.query(sqlQuery,[id]);
+    return await Product.getAll()
 }
 
 module.exports = Product

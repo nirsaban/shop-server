@@ -29,8 +29,8 @@ var upload = multer({
     }
 });
 
-
 router.post("/create",requireAuth ,uploadImages, upload.array("images", 6), productCTRL.create)
 router.get("/get",productCTRL.get)
+router.delete("/delete",productCTRL.delete)
 
 module.exports = router

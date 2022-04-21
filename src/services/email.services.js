@@ -89,7 +89,6 @@ class EmailService {
                 }
                 console.log(error,info)
             })
-            debugger
             }
     
         })

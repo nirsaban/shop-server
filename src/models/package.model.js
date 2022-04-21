@@ -14,9 +14,14 @@ Package.create = async (fields) => {
         ]
     })
     await Package.insertProductToPackage(productsOfPackage, db);
-    return result;
+    return await Package.getAll();
 }
-
+Package.delete  = async (id) => {
+    let db = new DB(configDev);
+    let sqlQuery = "delete From packages where id = ?";
+    let result = await db.query(sqlQuery,[id]);
+    return await Package.getAll();
+}
 Package.getAll = async () => {
     let db = new DB(configDev);
     let sqlQuery = "SELECT pac.*,p.product_name,p.id as product_id from packages pac INNER JOIN packages_product pp ON pp.package_id = pac.id INNER JOIN products p on pp.product_id = p.id";
