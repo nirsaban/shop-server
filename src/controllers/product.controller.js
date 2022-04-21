@@ -55,7 +55,7 @@ exports.delete = async (req, res) => {
                 product.images = imagesArr
                 return product
             })
-            res.status(200).send( {msg : "category has been delete" ,result})
+            res.status(200).send( {msg : "product has been delete" ,result})
 
         } else {
             res.status(422).send("no products exist")
