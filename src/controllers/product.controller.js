@@ -39,11 +39,11 @@ exports.get = async (req, res) => {
             res.status(200).send(productsParse)
 
         } else {
-            res.status(422).send("no products exist")
+            res.status(200).send([])
 
         }
     } catch (error) {
-        res.status(422).send("no products exist")
+        res.status(422).send("nos products exist")
     }
 }
 exports.delete = async (req, res) => {
