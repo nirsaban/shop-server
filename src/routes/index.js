@@ -5,6 +5,7 @@ const userRoute = require("./user.route");
 const orderRoute = require("./order.route"); 
 const contactRoute = require("./contact.route"); 
 const aboutRoute = require("./about.route"); 
+const cmsRoute = require("./cms.route"); 
 const router = require("express").Router();
 const requireAuth = require("../middlewares/auth")
 const multer = require('multer')
@@ -16,4 +17,5 @@ router.use("/order",requireAuth, orderRoute);
 router.use("/user", userRoute);
 router.use("/contact", contactRoute);
 router.use("/about", aboutRoute);
+router.use("/cms", cmsRoute);
 module.exports = router
