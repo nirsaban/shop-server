@@ -1,19 +1,15 @@
-
 const DB = require("./DB.model");
 const { configDev } = require("../config/dbConfig");
 const CMS = {};
 
-
-
 CMS.create = async (fields) => {
   let db = new DB(configDev);
-let sqlQuery = "INSERT INTO cms set ? = ?";
-    let json = JSON.stringify(Object.values(fields)[0]);
-    console.log(json,Object.keys(fields)[0])
-  let result = await db.query(sqlQuery, [Object.keys(fields)[0] ,json  ]);
+  let sqlQuery = `INSERT INTO cms set ${Object.keys(fields)[0]} = ?`;
+  let json = JSON.stringify(Object.values(fields)[0]);
+
+  let result = await db.query(sqlQuery, [json]);
   return result;
 };
-
 
 CMS.get = async () => {
   let db = new DB(configDev);
@@ -28,7 +24,6 @@ CMS.update = async (fields) => {
   let result = await db.query(sqlQuery, fields);
   return result;
 };
-
 CMS.delete = async (id) => {
   let db = new DB(configDev);
   let sqlQuery = "delete from cms set where id = ? ";
