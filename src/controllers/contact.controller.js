@@ -13,4 +13,3 @@ exports.create = async (req,res) => {
         res.status(422).send(error.message)
     }
 }
-

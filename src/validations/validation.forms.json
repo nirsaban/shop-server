@@ -47,5 +47,8 @@
     "CREATE_ABOUT": {
         "content": "required",
         "images": "images"
+    },
+    "ADD_SOCIAL_LINKS":{
+        "links":"required"
     }
 }

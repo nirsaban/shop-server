@@ -105,3 +105,7 @@ exports.contentSchema = {
     "type": "string",
     "min": 8,
 }
+exports.linksSchema = {
+  id: "/links",
+  type: "object",
+};
