@@ -33,3 +33,5 @@ CMS.delete = async (id) => {
   let result = await db.query(sqlQuery, id);
   return result;
 };
+
+module.exports = CMS
