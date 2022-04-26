@@ -7,8 +7,8 @@ const CMS = {};
 
 CMS.create = async (fields) => {
   let db = new DB(configDev);
-  let sqlQuery = "INSERT INTO cms set ?";
-  let result = await db.query(sqlQuery, fields);
+  let sqlQuery = "INSERT INTO cms set ? = ?";
+  let result = await db.query(sqlQuery, [Object.keys(fields)[0] , JSON.stringify(Object.values(fields)[0]) ]);
   return result;
 };
 
