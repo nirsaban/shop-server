@@ -9,6 +9,7 @@
         "package_name": "required",
         "products": "required",
         "price": "required",
+        "videos": "required",
         "rate": "required",
         "description": "required"
     },
@@ -48,7 +49,7 @@
         "content": "required",
         "images": "images"
     },
-    "ADD_SOCIAL_LINKS":{
-        "links":"required"
+    "ADD_SOCIAL_LINKS": {
+        "links": "required"
     }
 }

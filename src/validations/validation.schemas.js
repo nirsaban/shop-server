@@ -31,6 +31,11 @@ exports.product_nameSchema = {
 exports.imagesSchema = {
     "id": "/images",
     "type": "array",
+    
+}
+exports.videosSchema = {
+    "id": "/videos",
+    "type": "array",
     "minLength": 1
 }
 exports.descriptionSchema = {

@@ -2,19 +2,27 @@ const DB = require("./DB.model")
 const { configDev } = require("../config/dbConfig");
 const Package = {};
 Package.create = async (fields) => {
+    try {
+        
     let db = new DB(configDev);
+    let jsonVideos = JSON.stringify(fields['videos']);
+    fields['videos'] = jsonVideos
     let sqlQuery = "INSERT INTO packages set ?";
     let products = fields.products;
     delete fields['products'];
     let result = await db.query(sqlQuery, fields);
+    console.log(products)
     let productsOfPackage = products.map(product => {
         return [
             product,
             result.insertId
         ]
-    })
+     })
     await Package.insertProductToPackage(productsOfPackage, db);
     return await Package.getAll();
+} catch (error) {
+    throw new Error(error)
+}
 }
 Package.delete  = async (id) => {
     let db = new DB(configDev);
@@ -55,6 +63,7 @@ Package.orderPackages = (arr) => {
 
 Package.insertProductToPackage = async (arrProducts, db) => {
     let sqlQuery = "INSERT INTO packages_product (product_id,package_id) VALUES ? "
+    console.log(arrProducts)
     await db.query(sqlQuery, [arrProducts])
     await db.close();
 }
