@@ -1,7 +1,7 @@
 const configDev = {
-  host: "localhost",
+  host: "shop.c9kz33x88ryk.us-east-1.rds.amazonaws.com",
   user: "root",
-  password: '',
+  password: 'parnasa2022',
   database: 'mabrukAlik',
   multipleStatements: true,
 };
